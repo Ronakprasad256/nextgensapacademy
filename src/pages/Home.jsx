@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import './Home.css'; // adjust path if needed
+
 
 const testimonials = [
   {
@@ -226,13 +228,28 @@ const Home = () => {
           <div className="relative w-full md:w-1/2 flex justify-center items-center">
             <div className="absolute w-96 h-96 border border-gray-300 rounded-full"></div>
             <div className="absolute w-72 h-72 bg-[#033b4a] rounded-full z-0"></div>
-            <div className="absolute left-0 top-1/2 w-3 h-3 bg-orange-500 rounded-full -translate-y-1/2"></div>
-            <div className="absolute right-10 bottom-10 w-3 h-3 bg-orange-500 rounded-full"></div>
-            <img
+            <div className="relative w-full md:w-1/2 flex justify-center items-center">
+  <div className="absolute w-96 h-96 border border-gray-300 rounded-full"></div>
+  <div className="absolute w-72 h-72 bg-[#033b4a] rounded-full z-0"></div>
+
+  {/* Spinning Dot Container */}
+  <div className="dot-orbit">
+    <div className="dot" style={{ top: "0%", left: "50%", transform: "translate(-50%, -50%)" }}></div>
+    <div className="dot" style={{ bottom: "0%", left: "50%", transform: "translate(-50%, 50%)" }}></div>
+  </div>
+
+  <img
+    src="/girl2.png"
+    alt="Eviden Student"
+    className="relative z-10 w-64 md:w-80"
+  />
+</div>
+
+            {/* <img
               src="/girl2.png"
               alt="Eviden Student"
               className="relative z-10 w-64 md:w-80"
-            />
+            /> */}
           </div>
 
           <div className="w-full md:w-1/2 space-y-4 text-gray-800">
