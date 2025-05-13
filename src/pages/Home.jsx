@@ -8,25 +8,29 @@ const testimonials = [
     title: "Thank you ATOS",
     text: "I completed my SAP HCM certification from ATOS and got a job in ATOS Mumbai now. I am extremely happy that ATOS kept their words regarding placement after certification. Special thanks to Saurabh Palsule who helped me a lot till...",
     name: "Pratyay Bal",
-    course: "SAP HCM"
+    course: "SAP HCM",
+    image: "/avatar.jpg"
   },
   {
     title: "Very Good",
     text: "It’s authentic place to do SAP Global Certification. Management is extremely supportive. They provide good job placement opportunities which are authentic and genuine. IT infrastructure is top class. Institute staff is supporting and always ready to help.",
     name: "Ranjeet Patil",
-    course: "SAP MM"
+    course: "SAP MM",
+    image: "/avatar.jpg"
   },
   {
     title: "Great Job!",
     text: "Atos SAP training center is well managed and equipped with knowledgeable staff and trainer, counsellors are good to suggest you right module as per experience and academics, after completion of course the institute is very good.",
     name: "Kishore Rane",
-    course: "SAP SD"
+    course: "SAP SD",
+    image: "/avatar.jpg"
   },
   {
     title: "Great Experience",
     text: "The training quality at Atos is outstanding. The trainers are experienced, and the support staff is always ready to help. The placement process was transparent and effective.",
     name: "Anjali Sharma",
-    course: "SAP FICO"
+    course: "SAP FICO",
+    image: "/avatar.jpg"
   }
 ];
 
@@ -211,49 +215,68 @@ const Home = () => {
     </div>
 
     {/* Image Section */}
-    <div className="flex-1 w-full max-w-sm mx-auto mt-8 md:mt-0">
-      <img
-        src="/girl.png"
-        alt="SAP Training"
-        className="w-full rounded-lg object-cover"
-      />
-    </div>
+    <div className="relative w-full max-w-sm mx-auto mt-8">
+  {/* Back blue rotated rectangle */}
+  <div className="absolute inset-0 flex items-center justify-center z-0">
+    <div className="w-[75%] h-[75%] bg-[#002B3F] rounded-[2rem] transform -rotate-[10deg] animate-spin-slow"></div>
+  </div>
+
+  {/* Front orange rotated rectangle */}
+  <div className="absolute inset-0 flex items-center justify-center z-10">
+    <div className="w-[70%] h-[70%] bg-[#FF6D3F] rounded-[2rem] transform rotate-[-5deg] "></div>
+  </div>
+
+  {/* Foreground image - smaller and centered */}
+  <div className="relative z-20 flex justify-center items-center">
+    <img
+      src="/girl.png"
+      alt="SAP Training"
+      className="w-[70%] object-contain"
+    />
+  </div>
+</div>
+
   </div>
 </section>
 
 
       {/* Why Choose SAP Education Services Section */}
       <section className="w-full bg-[#e9f0f8] py-12 px-4 md:px-16">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 relative">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:py-18 items-center gap-10 relative">
           <div className="relative w-full md:w-1/2 flex justify-center items-center">
-            <div className="absolute w-96 h-96 border border-gray-300 rounded-full"></div>
+            <div className="absolute w-96 h-96 rounded-full"></div>
             <div className="absolute w-72 h-72 bg-[#033b4a] rounded-full z-0"></div>
             <div className="relative w-full md:w-1/2 flex justify-center items-center">
-  <div className="absolute w-96 h-96 border border-gray-300 rounded-full"></div>
-  <div className="absolute w-72 h-72 bg-[#033b4a] rounded-full z-0"></div>
+  {/* Base circle */}
+  <div className="absolute w-64 h-64 md:w-96 md:h-96 border border-gray-300 rounded-full"></div>
+  
+  {/* Background blob */}
+  <div className="absolute w-48 h-48 md:w-72 md:h-72 bg-[#033b4a] rounded-full z-0"></div>
 
-  {/* Spinning Dot Container */}
-  <div className="dot-orbit">
+  {/* Galaxy Ring */}
+  <div className="galaxy-ring w-64 h-64 md:w-96 md:h-96"></div>
+
+  {/* Spinning Dots */}
+  <div className="dot-orbit w-64 h-64 md:w-96 md:h-96">
     <div className="dot" style={{ top: "0%", left: "50%", transform: "translate(-50%, -50%)" }}></div>
     <div className="dot" style={{ bottom: "0%", left: "50%", transform: "translate(-50%, 50%)" }}></div>
+    <div className="dot" style={{ left: "0%", top: "50%", transform: "translate(-50%, -50%)" }}></div>
+    <div className="dot" style={{ right: "0%", top: "50%", transform: "translate(50%, -50%)" }}></div>
   </div>
 
+  {/* Main Image */}
   <img
     src="/girl2.png"
     alt="Eviden Student"
-    className="relative z-10 w-64 md:w-80"
+    className="relative z-10 w-44 md:w-64"
   />
 </div>
 
-            {/* <img
-              src="/girl2.png"
-              alt="Eviden Student"
-              className="relative z-10 w-64 md:w-80"
-            /> */}
+
           </div>
 
           <div className="w-full md:w-1/2 space-y-4 text-gray-800">
-            <h2 className="text-3xl md:text-4xl font-semibold">
+            <h2 className="text-3xl md:text-4xl mt-6 font-semibold">
               Why Choose SAP Education Services <br />
               <span className="text-orange-500">@Atos</span>?
             </h2>
@@ -306,7 +329,11 @@ const Home = () => {
                   <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                   <p className="text-gray-700 mb-4">{item.text}</p>
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gray-300 rounded-full" />
+                  <img
+  src={item.image || '/default-avatar.png'}
+  alt={item.name}
+  className="w-12 h-12 rounded-full object-cover"
+/>
                     <div>
                       <p className="font-medium">{item.name}</p>
                       <p className="text-sm text-gray-500">{item.course}</p>
