@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Home.css'; // adjust path if needed
+import { Link } from 'react-router-dom';
 
 
 const testimonials = [
@@ -38,27 +39,32 @@ const testimonials2 = [
   {
     title: "SAP FICO Certification Training Course",
     description: "Financial Accounting in SAP S/4HANA training is for new...",
-    image: "/images/1.jpg",
+    image: "/sd.jpg",
+    link: "/about"
   },
   {
     title: "SAP EWM Training & Certification Course",
     description: "Learn how to efficiently manage inventory in the Warehouse and fo...",
-    image: "/images/2.jpg",
+    image: "/fico.jpg",
+    link: "/contact"
   },
   {
     title: "SAP MM Training & Certification Course",
     description: "Learn about sourcing and procurement in SAP S/4HANA, it’s...",
-    image: "/images/3.jpg",
+    image: "/evm.png",
+    link: "/about"
   },
   {
     title: "SAP CO Training & Certification",
     description: "This program is aimed toward new consultants who want to obtain a...",
-    image: "/images/4.jpg",
+    image: "/mm.jpg",
+    link: "/about"
   },
   {
     title: "SAP SD Training & Certification Course",
     description: "Obtain an overview and upskilling knowledge for SAP S/4HANA and...",
-    image: "/images/5.jpg",
+    image: "/co.jpg",
+    link: "/about"
   },
 ];
 
@@ -136,12 +142,12 @@ const Home = () => {
     <>
       {/* Hero Section */}
       <motion.div
-  className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] text-white"
+  className="relative w-full h-[500px] sm:h-[300px] md:h-[400px] text-white"
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   transition={{ duration: 1 }}
   style={{
-    backgroundImage: 'url("/sap.jpg")',
+    backgroundImage: 'url("/sappp.jpg")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   }}
@@ -218,12 +224,12 @@ const Home = () => {
     <div className="relative w-full max-w-sm mx-auto mt-8">
   {/* Back blue rotated rectangle */}
   <div className="absolute inset-0 flex items-center justify-center z-0">
-    <div className="w-[75%] h-[75%] bg-[#002B3F] rounded-[2rem] transform -rotate-[10deg] animate-spin-slow"></div>
+    <div className="w-[75%] h-[70%] bg-[#002B3F] rounded-[2rem] transform -rotate-[10deg] animate-spin-slow"></div>
   </div>
 
   {/* Front orange rotated rectangle */}
   <div className="absolute inset-0 flex items-center justify-center z-10">
-    <div className="w-[70%] h-[70%] bg-[#FF6D3F] rounded-[2rem] transform rotate-[-5deg] "></div>
+    <div className="w-[65%] h-[70%] bg-[#FF6D3F] rounded-[2rem] transform rotate-[-5deg] "></div>
   </div>
 
   {/* Foreground image - smaller and centered */}
@@ -380,16 +386,18 @@ const Home = () => {
                   <div className="p-4">
                     <h3 className="text-lg font-semibold text-gray-900">{course.title}</h3>
                     <p className="text-sm text-gray-600 mt-2">{course.description}</p>
+                    {/* <li><Link to="/about" className="hover:underline">About</Link></li> */}
                     <button className="mt-4 px-4 py-2 bg-slate-900 text-white text-sm rounded-md hover:bg-slate-700">
+                      <Link to={course.link}>
                       Read More
-                    </button>
+                      </Link></button>
                   </div>
                 </div>
               ))}
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex justify-center mt-6 space-x-3">
+          <div className="flex justify-center mt-6 py-6 space-x-3">
             {groupedTestimonials2.map((_, idx) => (
               <button
                 key={idx}
